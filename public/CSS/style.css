@@ -1,0 +1,490 @@
+/* Cores principais */
+:root {
+    --cor-vermelho-escuro: #A93226; /* Usado no header e footer */
+    --cor-vermelho-principal: #C0392B; /* Usado na navbar e destaques */
+    --cor-vermelho-claro: #E74C3C; /* Usado em hovers e detalhes */
+    --cor-fundo-site: #ffffff;
+    --cor-texto-sobre-vermelho: #ffffff;
+    --cor-texto-padrao: #333333;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--cor-texto-padrao);
+    background-color: var(--cor-fundo-site);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex-grow: 1;
+}
+
+/* CABEÇALHO ATUALIZADO */
+.header-custom {
+    background-color: var(--cor-vermelho-escuro);
+    color: var(--cor-texto-sobre-vermelho);
+    border-bottom: 3px solid #8E231B;
+}
+
+.logo-esquerda {
+    height: 60px; 
+    max-width: 200px;
+    object-fit: contain;
+}
+
+.header-title {
+    color: var(--cor-texto-sobre-vermelho);
+    font-size: 1.5rem; /* Tamanho do título */
+    font-weight: 300; /* Fonte mais leve */
+    margin: 0;
+}
+
+
+/* NAVEGAÇÃO E DROPDOWNS */
+.nav-custom {
+    background-color: var(--cor-vermelho-principal) !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.nav-custom .nav-link {
+    color: rgba(255, 255, 255, 0.85);
+    padding: 0.8rem 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.nav-custom .nav-link:hover,
+.nav-custom .nav-link.active {
+    color: var(--cor-texto-sobre-vermelho);
+    background-color: var(--cor-vermelho-escuro);
+}
+
+.dropdown-menu {
+    background-color: var(--cor-vermelho-principal);
+    border-color: var(--cor-vermelho-escuro);
+}
+.dropdown-item {
+    color: rgba(255, 255, 255, 0.85);
+}
+.dropdown-item:hover, .dropdown-item:focus {
+    color: var(--cor-texto-sobre-vermelho);
+    background-color: var(--cor-vermelho-escuro);
+}
+ .navbar-collapse.menu-aberto {
+    display: block;
+}
+
+/* BANNER INICIAL CORRIGIDO */
+.banner-inicio {
+    background-color: #f3eace; 
+    background-image: url('../img/textura-papel.png'); /* Certifique-se que o arquivo textura-papel.png está na mesma pasta */
+    background-size: cover;
+    background-position: center;
+    padding: 40px 20px;
+    border-bottom: 1px solid #d2b48c; ;
+    position: relative;
+    overflow: hidden;
+    height: 10%; /* Altura fixa para o banner */
+    
+}
+
+.banner-content {
+    position: relative; 
+    z-index: 2;
+}
+
+.logo-banner {
+    max-width: 450px;
+    width: 100%;
+    height: auto; /* Altura automática para manter proporção */
+}
+
+.banner-inicio::before,
+.banner-inicio::after {
+    content: '';
+    position: absolute;
+    top: 55%;
+    width: 25%; /* Ajuste a largura das linhas */
+    height: 3px;
+    background-color: #333;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.banner-inicio::before {
+    left: 5%; 
+}
+
+.banner-inicio::after {
+    right: 5%; 
+}
+
+
+/* CARROSSEL RESPONSIVO CORRIGIDO */
+#eventos-carousel {
+    max-width: 50%; /* Mantém o tamanho desejado em telas grandes */
+    width: 100%;    /* Garante que ele possa encolher */
+    margin: 40px auto; /* Adiciona espaço vertical e centraliza */
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.carousel-image { 
+    height: auto; /* Altura automática para manter proporção */
+    aspect-ratio: 16 / 9; /* Proporção de cinema (ajuste se preferir) */
+    object-fit: cover;
+    filter: brightness(0.7);
+}
+
+
+/* SEÇÃO DO MAPA E FOOTER (sem alterações) */
+.section-title { color: var(--cor-vermelho-escuro); font-weight: 300; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2rem; }
+.map-section { background-color: #f8f9fa; }
+.map-container { position: relative; width: 100%; padding-top: 75%; background-color: #e9ecef; border: 3px solid var(--cor-vermelho-principal); border-radius: 8px; overflow: hidden; }
+.map-container iframe, .map-container .map-placeholder { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.map-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; color: #6c757d; }
+.map-placeholder i { font-size: 4rem; color: var(--cor-vermelho-claro); }
+.footer-custom { background-color: var(--cor-vermelho-escuro); }
+
+
+/* ============================ */
+/* == ESTILOS PÁGINA ACERVO == */
+/* ============================ */
+
+.acervo-item {
+    background-color: #f8f9fa; /* Fundo levemente cinza para cada item */
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    height: 100%; /* Faz com que todos os cards na mesma linha tenham a mesma altura */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.acervo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.acervo-title {
+    color: var(--cor-vermelho-escuro);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.acervo-img {
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 4 / 3; /* Proporção da imagem (4:3) para manter uniformidade */
+}
+
+.acervo-text {
+    font-size: 0.95rem;
+    color: #495057;
+    text-align: left; /* Alinha o texto à esquerda para melhor leitura */
+    flex-grow: 1; /* Permite que o texto cresça e empurre o link para baixo */
+}
+
+.acervo-text p {
+    margin-bottom: 0;
+}
+
+.acervo-text a {
+    color: var(--cor-vermelho-principal);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.acervo-text a:hover {
+    color: var(--cor-vermelho-escuro);
+    text-decoration: underline;
+}
+
+/* =============================== */
+/* == ESTILOS PÁGINA BIBLIOTECAS == */
+/* =============================== */
+
+.biblioteca-card {
+    border: 1px solid #dee2e6;
+    border-left: 5px solid var(--cor-vermelho-principal); /* Destaque na lateral */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Garante que a imagem se ajuste bem */
+}
+
+.biblioteca-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.biblioteca-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem cubra o espaço sem distorcer */
+}
+
+.biblioteca-title {
+    color: var(--cor-vermelho-escuro);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.biblioteca-text {
+    font-size: 0.95rem;
+    color: #495057;
+    line-height: 1.6;
+}
+
+/* AJUSTES RESPONSIVOS */
+@media (max-width: 991.98px) {
+    .header-title {
+        font-size: 1.2rem;
+    }
+    #eventos-carousel {
+        max-width: 80%; /* Carrossel ocupa mais espaço em tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-inicio::before,
+    .banner-inicio::after {
+        width: 15%;
+    }
+    #eventos-carousel {
+        max-width: 95%; /* Carrossel ocupa quase todo o espaço em celulares */
+        margin: 20px auto;
+    }
+}
+/* Estilos para o novo menu - pode adicionar em seu style.css ou em um novo arquivo */
+
+:root {
+    --cor-vermelho-escuro: #A93226;
+    --cor-vermelho-principal: #C0392B;
+    --cor-texto-sobre-vermelho: #ffffff;
+}
+
+/* Estrutura da Navbar */
+.navbar-custom {
+    background-color: var(--cor-vermelho-principal);
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: center; /* <<< ALTERAÇÃO AQUI: Centraliza o conteúdo */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative; /* Adicionado para posicionar o menu toggler */
+}
+
+/* Ícone do Menu Toggler (Hamburger) */
+.menu-toggler {
+    display: none; /* Escondido em telas grandes */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+    position: absolute; /* Posiciona o botão na borda */
+    right: 20px; /* Alinha à direita */
+}
+
+.menu-toggler .line {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--cor-texto-sobre-vermelho);
+    margin: 5px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animação do Hamburger para "X" */
+.menu-toggler.active .line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.menu-toggler.active .line:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggler.active .line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Links do Menu */
+.menu-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.menu-links a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 10px 5px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.menu-links a:hover {
+    color: var(--cor-texto-sobre-vermelho);
+}
+
+/* Animação da linha sob o link */
+.menu-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--cor-vermelho-escuro);
+    transition: width 0.3s ease;
+}
+
+.menu-links a:hover::after {
+    width: 100%;
+}
+
+/* Dropdowns */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle .arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--cor-texto-sobre-vermelho);
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--cor-vermelho-principal);
+    border-radius: 0 0 4px 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    padding: 10px 0;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+/* Animação do dropdown no hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown:hover .dropdown-toggle .arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu li {
+    padding: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+/* Agendamento*/
+.form-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background-color: #ffffff; /* Fundo suave para a área do formulário */
+}
+
+.form-container iframe {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    width: 700px; /* Largura ajustada */
+    height: 2800px; /* Altura ajustada conforme necessidade */
+}
+/* Responsividade para telas menores */
+@media (max-width: 992px) {
+    .navbar-container {
+        justify-content: flex-end; /* Alinha o toggler à direita */
+    }
+
+    .menu-toggler {
+        display: block;
+        position: static; /* Volta ao fluxo normal dentro do container */
+    }
+
+    .menu-links {
+        display: none;
+        position: absolute;
+        top: 70px; /* Altura da navbar */
+        left: 0;
+        width: 100%;
+        background-color: var(--cor-vermelho-principal);
+    }
+
+    .menu-links.active {
+        display: block;
+    }
+
+    .menu-links ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0;
+    }
+    
+    .menu-links li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background-color: var(--cor-vermelho-escuro);
+        min-width: auto;
+    }
+    
+    .dropdown.open .dropdown-menu {
+        display: block;
+    }
+}
+/* Remove a seta padrão do Bootstrap da navbar */
+.navbar .dropdown-toggle::after {
+    display: none !important;
+}
